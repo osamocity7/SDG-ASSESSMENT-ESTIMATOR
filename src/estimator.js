@@ -78,34 +78,30 @@ const covid19ImpactEstimator = (data) => {
     // console.log(data.timeToElapse);
     // console.log(output.impact.infectionsByRequestedTime);
     output.impact.dollarsInFlight = Math
-      .trunc(data.region.avgDailyIncomePopulation
-       * data.region.avgDailyIncomeInUSD
-    * data.timeToElapse * output.impact.infectionsByRequestedTime);
+      .trunc((data.region.avgDailyIncomeInUSD
+    * data.region.avgDailyIncomePopulation * output.impact.infectionsByRequestedTime)
+    / data.timeToElapse);
     output.severeImpact.dollarsInFlight = Math
-      .trunc(data.region.avgDailyIncomePopulation
-      * output.severeImpact.avgDailyIncomeInUSD
-    * output.severeImpact.timeToElapse
-    * output.severeImpact.infectionsByRequestedTime);
+      .trunc((data.region.avgDailyIncomePopulation
+      * data.region.avgDailyIncomeInUSD
+     * output.severeImpact.infectionsByRequestedTime) / data.timeToElapse);
   } else if (data.periodType === 'weeks') {
     output.impact.dollarsInFlight = Math
-      .trunc(data.region.avgDailyIncomePopulation
-      * data.region.avgDailyIncomeInUSD
-    * output.impact.timeToElapse * 7
-      * output.impact.infectionsByRequestedTime);
+      .trunc((data.region.avgDailyIncomeInUSD
+    * data.region.avgDailyIncomePopulation * 7
+      * output.impact.infectionsByRequestedTime) / data.timeToElapse);
     output.severeImpact.dollarsInFlight = Math
-      .trunc(data.region.avgDailyIncomePopulation
-       * output.severeImpact.avgDailyIncomeInUSD
-    * output.severeImpact.timeToElapse * 7
-     * output.severeImpact.infectionsByRequestedTime);
+      .trunc((data.region.avgDailyIncomePopulation
+       * output.severeImpact.avgDailyIncomeInUSD * 7
+     * output.severeImpact.infectionsByRequestedTime) / data.timeToElapse);
   } else if (data.periodType === 'months') {
-    output.impact.dollarsInFlight = Math.trunc(data.region.avgDailyIncomePopulation
+    output.impact.dollarsInFlight = Math.trunc((data.region.avgDailyIncomePopulation
        * data.region.avgDailyIncomeInUSD
-    * data.timeToElapse * 30 * output.impact.infectionsByRequestedTime);
+    * 30 * output.impact.infectionsByRequestedTime) / data.timeToElapse);
     output.severeImpact.dollarsInFlight = Math
-      .trunc(data.region.avgDailyIncomePopulation
-       * data.region.avgDailyIncomeInUSD
-    * data.timeToElapse * 30
-    * output.severeImpact.infectionsByRequestedTime);
+      .trunc((data.region.avgDailyIncomePopulation
+       * data.region.avgDailyIncomeInUSD * 30
+    * output.severeImpact.infectionsByRequestedTime) / data.timeToElapse);
   }
 
 
