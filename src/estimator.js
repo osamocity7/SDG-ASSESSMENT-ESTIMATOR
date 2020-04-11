@@ -88,20 +88,20 @@ const covid19ImpactEstimator = (data) => {
   } else if (data.periodType === 'weeks') {
     output.impact.dollarsInFlight = Math
       .trunc((data.region.avgDailyIncomeInUSD
-    * data.region.avgDailyIncomePopulation * 7
-      * output.impact.infectionsByRequestedTime) / data.timeToElapse);
+    * data.region.avgDailyIncomePopulation
+      * output.impact.infectionsByRequestedTime) / (data.timeToElapse * 7));
     output.severeImpact.dollarsInFlight = Math
       .trunc((data.region.avgDailyIncomePopulation
-       * output.severeImpact.avgDailyIncomeInUSD * 7
-     * output.severeImpact.infectionsByRequestedTime) / data.timeToElapse);
+       * output.severeImpact.avgDailyIncomeInUSD
+     * output.severeImpact.infectionsByRequestedTime) / (data.timeToElapse * 7));
   } else if (data.periodType === 'months') {
     output.impact.dollarsInFlight = Math.trunc((data.region.avgDailyIncomePopulation
        * data.region.avgDailyIncomeInUSD
-    * 30 * output.impact.infectionsByRequestedTime) / data.timeToElapse);
+    * output.impact.infectionsByRequestedTime) / (data.timeToElapse * 30));
     output.severeImpact.dollarsInFlight = Math
       .trunc((data.region.avgDailyIncomePopulation
-       * data.region.avgDailyIncomeInUSD * 30
-    * output.severeImpact.infectionsByRequestedTime) / data.timeToElapse);
+       * data.region.avgDailyIncomeInUSD
+    * output.severeImpact.infectionsByRequestedTime) / (data.timeToElapse * 30));
   }
 
 
