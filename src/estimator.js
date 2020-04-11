@@ -77,19 +77,19 @@ const covid19ImpactEstimator = (data) => {
     // console.log(data.region.avgDailyIncomeInUSD);
     // console.log(data.timeToElapse);
     // console.log(output.impact.infectionsByRequestedTime);
-    output.impact.dollarsInFlight = Math.trunc(0.85 * data.region.avgDailyIncomeInUSD
+    output.impact.dollarsInFlight = Math.trunc(data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD
     * data.timeToElapse * output.impact.infectionsByRequestedTime);
-    output.severeImpact.dollarsInFlight = Math.trunc(0.65 * output.severeImpact.avgDailyIncomeInUSD
+    output.severeImpact.dollarsInFlight = Math.trunc(data.region.avgDailyIncomePopulation * output.severeImpact.avgDailyIncomeInUSD
     * output.severeImpact.timeToElapse * output.severeImpact.infectionsByRequestedTime);
   } else if (data.periodType === 'weeks') {
-    output.impact.dollarsInFlight = Math.trunc(0.65 * output.impact.avgDailyIncomeInUSD
+    output.impact.dollarsInFlight = Math.trunc(data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD
     * output.impact.timeToElapse * 7 * output.impact.infectionsByRequestedTime);
-    output.severeImpact.dollarsInFlight = Math.trunc(0.65 * output.severeImpact.avgDailyIncomeInUSD
+    output.severeImpact.dollarsInFlight = Math.trunc(data.region.avgDailyIncomePopulation * output.severeImpact.avgDailyIncomeInUSD
     * output.severeImpact.timeToElapse * 7 * output.severeImpact.infectionsByRequestedTime);
   } else if (data.periodType === 'months') {
-    output.impact.dollarsInFlight = Math.trunc(0.65 * data.region.avgDailyIncomeInUSD
+    output.impact.dollarsInFlight = Math.trunc(data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD
     * data.timeToElapse * 30 * output.impact.infectionsByRequestedTime);
-    output.severeImpact.dollarsInFlight = Math.trunc(0.65 * data.region.avgDailyIncomeInUSD
+    output.severeImpact.dollarsInFlight = Math.trunc(data.region.avgDailyIncomePopulation * data.region.avgDailyIncomeInUSD
     * data.timeToElapse * 30 * output.severeImpact.infectionsByRequestedTime);
   }
 
