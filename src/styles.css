@@ -93,10 +93,10 @@
     width: 80px;
   }
 
-  .plabel {
-    font-size: large;
-    font-weight: 200px;
-    color: royalblue;
+  .plable {
+    font-size: 20px;
+    font-weight: 300px;
+    color: black;
 
   }
   
@@ -110,7 +110,7 @@
   }
   
   .btn-lg, .btn-group-lg>.btn {
-    font-weight: normal;
+    font-weight:bolder;
   }
   .btn-lg, .btn-group-lg>.btn {
     padding: 10px 16px;
