@@ -38,8 +38,11 @@
   h1, .h1 {
     font-size: 40px;
     font-weight: 400;
-    color: #79589f;
+    color: black;
     font-family: benton-sans,'Helvetica Neue',helvetica,arial,sans-serif;
+  }
+  h3{
+    color: rgb(204, 204, 204);
   }
 
   .form-control {
@@ -94,7 +97,7 @@
   }
 
   .plable {
-    font-size: 20px;
+    font-size: large;
     font-weight: 300px;
     color: black;
 
